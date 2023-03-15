@@ -6,19 +6,16 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:38:41 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/14 21:33:01 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:13:05 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 int	ft_strlen(const char *s)
 {
 	int	i;
 
 	i = 0;
-	if (!(*s))
-	{
-		return (NULL);
-	}
 	while (s[i])
 	{
 		i++;

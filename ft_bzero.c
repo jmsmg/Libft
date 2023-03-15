@@ -6,9 +6,10 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 13:22:20 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/14 21:32:00 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:21:00 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -19,7 +20,7 @@ void	ft_bzero(void *s, size_t n)
 	tmp = (char *)s;
 	while (i < n)
 	{
-		s[i] = 0;
+		tmp[i] = 0;
 		i++;
 	}
 }

@@ -6,20 +6,17 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:52:21 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/14 21:33:22 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/15 16:39:49 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "libft.h"
+
 void	*ft_memset(void *b, int c, size_t len)
 {
 	char			*tmp;
 	unsigned long	i;
 
 	i = 0;
-	if (!(*b))
-	{
-		return (NULL);
-	}
 	tmp = (char *)b;
 	while (i < len)
 	{

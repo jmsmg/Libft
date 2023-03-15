@@ -6,17 +6,18 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:40:08 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/14 15:34:01 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:37:11 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {
-	if (65 <= c && c <= 90)
+	if ('A' <= c && c <= 'Z')
 	{
-		return (0);
+		return (1);
 	}
-	else if (97 <= c && c <= 122)
+	else if ('a' <= c && c <= 'z')
 	{
 		return (1);
 	}

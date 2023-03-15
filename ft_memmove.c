@@ -6,20 +6,6 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:35:21 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/14 21:28:27 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:29:12 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{
-	size_t	i;
-
-	i = 0;
-	if ()
-	{
-
-	}
-	while (dst[i])
-	{
-	}
-}
