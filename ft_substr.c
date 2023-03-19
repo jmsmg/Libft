@@ -1,32 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 20:48:25 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/16 21:04:45 by seonggoc         ###   ########.fr       */
+/*   Created: 2023/03/19 22:58:16 by seonggoc          #+#    #+#             */
+/*   Updated: 2023/03/20 01:14:54 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t				i;
-	const unsigned char	*tmp_s1;
-	const unsigned char	*tmp_s2;
+	char			*tmp;
+	size_t			i;
+	unsigned int	mem_len;
 
 	i = 0;
-	tmp_s1 = s1;
-	tmp_s2 = s2;
-	while (i < n)
+	mem_len = 0;
+	if (mem_len >= len)
 	{
-		if (tmp_s1[i] != tmp_s2[i])
-		{
-			return (tmp_s1[i] - tmp_s2[i]);
-		}
-		i++;
+		return (0);
 	}
-	return (0);
+	else
+	{
+		tmp = (char *)malloc(sizeof(char) * len + 1);
+	}
+	if (!tmp)
+	{
+		return (0);
+	}
+	while (i < len)
+	{
+		tmp[i] = s[start];
+		i++;
+		start++;
+	}
+	tmp[i] = '\0';
+	return (tmp);
 }
+#include <stdio.h>
+
+int	main()
+{
+	ft_substr("", 30, 1);
+}
+

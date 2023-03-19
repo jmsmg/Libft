@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 20:48:25 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/16 21:04:45 by seonggoc         ###   ########.fr       */
+/*   Created: 2023/03/20 01:27:51 by seonggoc          #+#    #+#             */
+/*   Updated: 2023/03/20 01:30:27 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t				i;
-	const unsigned char	*tmp_s1;
-	const unsigned char	*tmp_s2;
+	char	*tmp;
 
-	i = 0;
-	tmp_s1 = s1;
-	tmp_s2 = s2;
-	while (i < n)
-	{
-		if (tmp_s1[i] != tmp_s2[i])
-		{
-			return (tmp_s1[i] - tmp_s2[i]);
-		}
-		i++;
-	}
-	return (0);
+	tmp = ft_itoa(n);
+	write(fd, tmp, ft_strlen(tmp));
 }
