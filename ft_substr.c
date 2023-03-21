@@ -11,19 +11,39 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static size_t	ft_check_size(char const *s, unsigned int start, size_t len)
 {
+	size_t	size;
 
-	char	*tmp;
-	size_t	i;
-
-	i = 0;
-	tmp = (char *)malloc(len + 1);
-	if (!tmp || (unsigned int)ft_strlen(s) <= start)
+	size = (size_t)ft_strlen(s);
+	if (size <= start)
 	{
 		return (0);
 	}
-	while (s[start] && i < len)
+	else if (size <= start + len)
+	{
+		return (size - start);
+	}
+	else
+	{
+		return (len);
+	}
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*tmp;
+	size_t	i;
+	size_t	size;
+
+	size = ft_check_size(s, start, len);
+	tmp = (char *)malloc(size + 1);
+	if (!tmp)
+	{
+		return (0);
+	}
+	i = 0;
+	while (i < size)
 	{
 		tmp[i] = s[start];
 		start++;
