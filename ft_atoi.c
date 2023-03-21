@@ -6,9 +6,10 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:08:18 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/15 16:54:32 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/21 09:25:16 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 int	ft_isspace(char c)
 {
@@ -26,9 +27,9 @@ int	ft_isspace(char c)
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	answer;
-	int	sign;
+	int		i;
+	int		sign;
+	long	answer;
 
 	i = 0;
 	sign = 1;
