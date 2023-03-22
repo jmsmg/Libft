@@ -6,16 +6,43 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:36:16 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/21 20:23:19 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/22 11:54:10 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-static char		**ft_put_word(char **ptr, char const *s, char c)
+static char	*ft_dup(char const *s, char c)
 {
+	char	*ptr;
 	size_t	i;
 
 	i = 0;
+	while (s[i] && s[i] != c)
+	{
+		i++;
+	}
+	ptr = (char *)malloc(sizeof(char) * i + 1);
+	if (!ptr)
+	{
+		return (0);
+	}
+	i = 0;
+	while (ptr[i])
+	{
+		ptr[i] = s[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
+}
+
+static char	**ft_put_word(char **ptr, char const *s, char c)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
 	while (s[i])
 	{
 		while (s[i] && s[i] == c)
@@ -24,14 +51,15 @@ static char		**ft_put_word(char **ptr, char const *s, char c)
 		}
 		if (s[i])
 		{
-			ft_strdu
+			ptr[j] = ft_dup(&s[i], c);
+			j++;
 		}
-		while ()
+		while (s[i] && s[i] != c)
 		{
 			i++;
 		}
 	}
-	ptr[i] = '\0';
+	ptr[j] = 0;
 	return (ptr);
 }
 
@@ -72,4 +100,5 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	}
 	ptr = ft_put_word(ptr, s, c);
+	return (ptr);
 }

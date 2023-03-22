@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:00:55 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/15 17:43:07 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/22 11:53:38 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strdup(const char *s1)
 {
-	int		i;
 	char	*tmp;
+	size_t	i;
 
 	i = 0;
 	while (s1[i])
@@ -23,7 +23,7 @@ char	*ft_strdup(const char *s1)
 		i++;
 	}
 	tmp = malloc(sizeof(char) * i + 1);
-	if (!(tmp))
+	if (!tmp)
 	{
 		return (NULL);
 	}
