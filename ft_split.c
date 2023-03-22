@@ -6,28 +6,41 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:36:16 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/22 12:03:16 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/22 13:07:42 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
+static void	ft_free(void **ptr, size_t cnt)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < cnt)
+	{
+		free(ptr[i]);
+		i++;
+	}
+	free(ptr);
+}
 static char	*ft_dup(char const *s, char c)
 {
 	char	*ptr;
 	size_t	i;
+	size_t	len;
 
 	i = 0;
-	while (s[i] && s[i] != c)
+	len = 0;
+	while (s[len] && s[len] != c)
 	{
-		i++;
+		len++;
 	}
-	ptr = (char *)malloc(sizeof(char) * i + 1);
+	ptr = (char *)malloc(sizeof(char) * len + 1);
 	if (!ptr)
 	{
 		return (0);
 	}
-	i = 0;
-	while (ptr[i])
+	while (i < len)
 	{
 		ptr[i] = s[i];
 		i++;
