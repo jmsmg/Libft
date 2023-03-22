@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 01:30:55 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/22 12:30:45 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:38:19 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_rec(int n, char *tmp, int size)
 		{
 			tmp[size] = n % 10 + '0';
 		}
-		return (ft_rec(n / 10, tmp, size - 1));	
+		return (ft_rec(n / 10, tmp, size - 1));
 	}
 }
 
@@ -47,7 +47,6 @@ char	*ft_itoa(int n)
 	}
 	if (n < 0)
 	{
-		n *= -1;
 		tmp = (char *)malloc(sizeof(char) * size + 1 + 1);
 		tmp[0] = '-';
 		size++;
