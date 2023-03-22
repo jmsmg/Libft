@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 01:30:55 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/20 05:10:30 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:30:45 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,14 @@ char	*ft_rec(int n, char *tmp, int size)
 	}
 	else
 	{
-		tmp[size] = n % 10 + '0';
+		if (n < 0)
+		{
+			tmp[size] = -(n % 10) + '0';
+		}
+		else
+		{
+			tmp[size] = n % 10 + '0';
+		}
 		return (ft_rec(n / 10, tmp, size - 1));	
 	}
 }
