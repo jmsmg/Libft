@@ -6,11 +6,11 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:36:16 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/22 13:07:42 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/22 13:49:25 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-
+/*
 static void	ft_free(void **ptr, size_t cnt)
 {
 	size_t	i;
@@ -23,6 +23,7 @@ static void	ft_free(void **ptr, size_t cnt)
 	}
 	free(ptr);
 }
+*/
 static char	*ft_dup(char const *s, char c)
 {
 	char	*ptr;
@@ -103,9 +104,11 @@ static size_t	ft_check_cnt(char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
+	size_t	i;
 	size_t	cnt;
 	char	**ptr;
 
+	i = 0;
 	cnt = ft_check_cnt(s, c);
 	ptr = (char **)malloc(sizeof(char *) * cnt + 1);
 	if (!ptr)
@@ -115,3 +118,10 @@ char	**ft_split(char const *s, char c)
 	ptr = ft_put_word(ptr, s, c);
 	return (ptr);
 }
+/*
+#include <stdio.h>
+int	main()
+{
+	printf("%s", ft_split("    hi   sd f asdf  ", ' ')[0]);
+}
+*/
