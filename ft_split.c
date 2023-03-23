@@ -6,12 +6,12 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:36:16 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/23 14:33:00 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/24 06:45:17 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-/*
-static void	ft_free(void **ptr, size_t cnt)
+
+static void	ft_free(char **ptr, size_t cnt)
 {
 	size_t	i;
 
@@ -23,7 +23,7 @@ static void	ft_free(void **ptr, size_t cnt)
 	}
 	free(ptr);
 }
-*/
+
 static char	*ft_dup(char const *s, char c)
 {
 	char	*ptr;
@@ -66,6 +66,11 @@ static char	**ft_put_word(char **ptr, char const *s, char c)
 		if (s[i])
 		{
 			ptr[j] = ft_dup(&s[i], c);
+			if (!ptr[j])
+			{
+				ft_free(ptr, j);
+				return (0);
+			}
 			j++;
 		}
 		while (s[i] && s[i] != c)
