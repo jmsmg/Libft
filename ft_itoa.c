@@ -6,13 +6,36 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 01:30:55 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/22 16:38:19 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:58:46 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-char	*ft_rec(int n, char *tmp, int size)
+static char	*ft_except_zero(char *tmp)
+{
+	if (!tmp)
+	{
+		return (0);
+	}
+	tmp[0] = '0';
+	tmp[1] = '\0';
+	return (tmp);
+}
+
+static int	ft_check_size(int n)
+{
+	int	size;
+
+	size = 0;
+	while (n != 0)
+	{
+		n /= 10;
+		size++;
+	}
+	return (size);
+}
+
+static char	*ft_rec(int n, char *tmp, int size)
 {
 	if (n == 0)
 	{
@@ -34,36 +57,25 @@ char	*ft_rec(int n, char *tmp, int size)
 
 char	*ft_itoa(int n)
 {
-	int		len;
 	int		size;
 	char	*tmp;
 
-	size = 0;
-	len = n;
-	while (len != 0)
+	size = ft_check_size(n);
+	if (n == 0)
 	{
-		len /= 10;
-		size++;
+		tmp = (char *)malloc(sizeof(char) * 2);
+		return (ft_except_zero(tmp));
 	}
-	if (n < 0)
+	else if (n < 0)
 	{
 		tmp = (char *)malloc(sizeof(char) * size + 1 + 1);
-		tmp[0] = '-';
 		size++;
 	}
 	else
-	{
 		tmp = (char *)malloc(sizeof(char) * size + 1);
-	}
 	if (!tmp)
 		return (0);
+	tmp[0] = '-';
 	tmp[size] = '\0';
 	return (ft_rec(n, tmp, size - 1));
 }
-/*
-#include <stdio.h>
-int	main()
-{
-	printf("%s", ft_itoa(-156));
-}
-*/
