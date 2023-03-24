@@ -31,6 +31,6 @@ re :
 	fclean all
 
 bonus : $(OBJS_BONUS) $(OBJS)
-	ar -rc $@ $(OBJS_BONUS) $(OBJS)
+	ar -rc $(NAME) $(OBJS_BONUS) $(OBJS)
 
 .PHONY : all clean fclean re
