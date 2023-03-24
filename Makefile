@@ -13,16 +13,22 @@ INCLUDED = libft.h
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
+ifdef WITH_BONUS
+	OBJ_FILES = $(OBJS) $(OBJS_BONUS)
+else
+	OBJ_FILES = $(OBJS)
+endif
+
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDED)
 
-$(NAME) : $(OBJS)
-	ar -rc $@ $(OBJS)
+$(NAME) : $(OBJ_FILES)
+	ar -rc $@ $(OBJ_FILES)
 
 all : $(NAME)
 
 clean :
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean : clean
 	rm -f $(NAME)
@@ -30,7 +36,7 @@ fclean : clean
 re :
 	fclean all
 
-bonus : $(OBJS_BONUS) $(OBJS)
-	ar -rc $(NAME) $(OBJS_BONUS) $(OBJS)
+bonus : 
+	make WITH_BONUS=1 all
 
 .PHONY : all clean fclean re
