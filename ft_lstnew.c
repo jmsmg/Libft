@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 07:06:18 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/24 08:59:15 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/24 13:58:03 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -15,7 +15,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*tmp;
 
-	tmp = (t_list)malloc(sizeof(t_list));
+	tmp = (t_list *)malloc(sizeof(t_list));
 	if (!tmp)
 	{
 		return (0);

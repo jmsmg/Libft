@@ -6,13 +6,13 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 08:42:52 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/24 09:40:49 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/24 13:58:42 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft"
+#include "libft.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	new->lst;
-	
+	new->next = *lst;
+	*lst = new;
 }

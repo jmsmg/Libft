@@ -11,6 +11,7 @@ SRCS_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_b
 		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 INCLUDED = libft.h
 OBJS = $(SRCS:.c=.o)
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDED)
@@ -27,4 +28,9 @@ fclean : clean
 	rm -f $(NAME)
 
 re :
-	fclean; all
+	fclean all
+
+bonus : $(OBJS_BONUS) $(OBJS)
+	ar -rc $@ $(OBJS_BONUS) $(OBJS)
+
+.PHONY : all clean fclean re
