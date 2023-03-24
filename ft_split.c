@@ -6,20 +6,20 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:36:16 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/24 10:46:37 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/24 12:09:56 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-static char	**ft_free(char **ptr, size_t j)
+static char	**ft_free(char **ptr)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (j)
+	while (ptr[i])
 	{
-		free(ptr[j]);
-		j--;
+		free(ptr[i]);
+		i++;
 	}
 	free(ptr);
 	return (0);
@@ -69,7 +69,7 @@ static char	**ft_put_word(char **ptr, char const *s, char c)
 			ptr[j] = ft_dup(&s[i], c);
 			if (!ptr[j])
 			{
-				return(ft_free(ptr, j));
+				return(ft_free(ptr));
 			}
 			j++;
 		}
@@ -113,8 +113,8 @@ char	**ft_split(char const *s, char c)
 	char	**ptr;
 
 	cnt = ft_check_cnt(s, c);
-	ptr = (char **)malloc(sizeof(char *) * cnt + 1);
-	if (!ptr)
+	ptr = (char **)malloc(sizeof(char *) * (cnt + 1));
+	if (!ptr || !s)
 	{
 		return (0);
 	}
