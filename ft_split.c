@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:36:16 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/24 12:09:56 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/24 15:12:59 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -69,14 +69,12 @@ static char	**ft_put_word(char **ptr, char const *s, char c)
 			ptr[j] = ft_dup(&s[i], c);
 			if (!ptr[j])
 			{
-				return(ft_free(ptr));
+				return (ft_free(ptr));
 			}
 			j++;
 		}
 		while (s[i] && s[i] != c)
-		{
 			i++;
-		}
 	}
 	ptr[j] = 0;
 	return (ptr);
