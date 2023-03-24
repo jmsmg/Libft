@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:36:16 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/24 08:24:25 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/24 09:15:42 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -118,8 +118,7 @@ char	**ft_split(char const *s, char c)
 	{
 		return (0);
 	}
-	ptr = ft_put_word(ptr, s, c);
-	return (ptr);
+	return (ft_put_word(ptr, s, c));
 }
 /*
 #include <stdio.h>
