@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 14:08:21 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/24 14:33:37 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/24 15:56:00 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 
+	if (!*lst)
+	{
+		new = *lst;
+	}
 	tmp = ft_lstlast(*lst);
 	tmp->next = new;
+	new->next = 0;
 }
