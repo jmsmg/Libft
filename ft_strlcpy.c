@@ -6,7 +6,7 @@
 /*   By: seonggoc <seonggoc@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:48:27 by seonggoc          #+#    #+#             */
-/*   Updated: 2023/03/16 15:46:49 by seonggoc         ###   ########.fr       */
+/*   Updated: 2023/03/27 14:00:56 by seonggoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -24,7 +24,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		i++;
 	}
 	if (dstsize)
+	{
 		dst[i] = '\0';
+	}
 	while (src[j])
 	{
 		j++;
